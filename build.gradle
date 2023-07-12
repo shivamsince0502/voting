@@ -101,7 +101,7 @@ dependencies {
     upgradesFound 'com.google.guava:guava:15.0',
             'com.google.inject:guice:2.0',
             'com.google.inject.extensions:guice-multibindings:2.0'
-    upgradesFound2 'com.google.guava:guava:16.0-rc1'
+    upgradesFound2 'com.google.guava:guava:16.0.1'
     unresolvable 'com.github.ben-manes:unresolvable:1.0',
             'com.github.ben-manes:unresolvable2:1.0'
     unresolvable2 'com.github.ben-manes:unresolvable:1.0',
