@@ -7,3 +7,4 @@
   "commitMessageAction": "{{#if isPin}}pin{{else}}update{{/if}} to",
   "commitMessageValue": "{{newVersion}}"
 }
+    
