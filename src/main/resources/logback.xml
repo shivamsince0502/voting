@@ -1,0 +1,13 @@
+
+<configuration>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>alllogs/logStore.log</file>
+        <encoder>
+            <pattern>%d %p %logger{1} - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>

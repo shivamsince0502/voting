@@ -1,0 +1,9 @@
+{
+  "extends": ["config:base"],
+  "labels": ["renovate"],
+  "automerge": true,
+  "commitMessagePrefix": "chore(deps):",
+  "commitMessageTopic": "{{depName}}",
+  "commitMessageAction": "{{#if isPin}}pin{{else}}update{{/if}} to",
+  "commitMessageValue": "{{newVersion}}"
+}

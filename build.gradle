@@ -1,0 +1,136 @@
+buildscript {
+    repositories {
+        // Use 'gradle install' to install the latest
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.github.ben-manes:gradle-versions-plugin:+'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'com.github.ben-manes.versions' version '0.39.0'
+    id 'jacoco'
+}
+
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+apply plugin: 'com.github.ben-manes.versions'
+apply plugin: 'jacoco'
+
+repositories {
+    mavenCentral()
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2')
+    }
+    // other repositories
+}
+
+
+configurations {
+    bom
+    upToDate
+    exceedLatest
+    platform
+    upgradesFound
+    upgradesFound2
+    unresolvable
+    unresolvable2
+}
+
+def isNonStable = { String version ->
+    def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { it -> version.toUpperCase().contains(it) }
+    def regex = /^[0-9,.v-]+(-r)?$/
+    return !stableKeyword && !(version ==~ regex)
+}
+
+tasks.named("dependencyUpdates").configure {
+    checkForGradleUpdate = true
+
+    // Example 1: reject all non-stable versions
+    rejectVersionIf {
+        isNonStable(candidate.version)
+    }
+
+    // Example 2: disallow release candidates as upgradable versions from stable versions
+    rejectVersionIf {
+        isNonStable(candidate.version) && !isNonStable(currentVersion)
+    }
+
+    // Example 3: using the full syntax
+    resolutionStrategy {
+        componentSelection {
+            all {
+                if (isNonStable(candidate.version) && !isNonStable(currentVersion)) {
+                    reject('Release candidate')
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter:3.1.0'
+    implementation 'ch.qos.logback:logback-classic:1.4.7'
+    implementation 'org.slf4j:slf4j-api:2.0.7'
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.1.0'
+    implementation 'org.springframework.boot:spring-boot-starter-security:3.1.0'
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.1.0'
+    implementation 'mysql:mysql-connector-java:8.0.32'
+    implementation 'org.projectlombok:lombok:1.18.26'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    testCompileOnly 'org.projectlombok:lombok:1.18.28'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.1.0'
+
+    bom 'org.springframework.boot:spring-boot-dependencies:1.5.8.RELEASE',
+            'com.google.code.gson:gson',
+            'dom4j:dom4j'
+    upToDate 'backport-util-concurrent:backport-util-concurrent:3.1',
+            'backport-util-concurrent:backport-util-concurrent-java12:3.1',
+            'org.openjdk.jmh:jmh-parent:1.25.2'
+    exceedLatest 'com.google.guava:guava:99.0-SNAPSHOT',
+            'com.google.guava:guava-tests:99.0-SNAPSHOT'
+    upgradesFound 'com.google.guava:guava:15.0',
+            'com.google.inject:guice:2.0',
+            'com.google.inject.extensions:guice-multibindings:2.0'
+    upgradesFound2 'com.google.guava:guava:16.0-rc1'
+    unresolvable 'com.github.ben-manes:unresolvable:1.0',
+            'com.github.ben-manes:unresolvable2:1.0'
+    unresolvable2 'com.github.ben-manes:unresolvable:1.0',
+            'com.github.ben-manes:unresolvable2:1.0'
+
+    platform 'com.linecorp.armeria:armeria',
+            'io.zipkin.brave:brave'
+    // Common usage would be to separate this into a project that uses the `java-platform` plugin to
+    // share constraints among several projects.
+    constraints {
+        platform 'com.linecorp.armeria:armeria:0.90.0',
+                'io.zipkin.brave:brave:5.7.0'
+    }
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+description = 'voting'
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
