@@ -99,7 +99,7 @@ dependencies {
     exceedLatest 'com.google.guava:guava:99.0-SNAPSHOT',
             'com.google.guava:guava-tests:99.0-SNAPSHOT'
     upgradesFound 'com.google.guava:guava:32.1.1-jre',
-            'com.google.inject:guice:2.0',
+            'com.google.inject:guice:7.0.0',
             'com.google.inject.extensions:guice-multibindings:4.2.3'
     upgradesFound2 'com.google.guava:guava:32.1.1-jre'
     unresolvable 'com.github.ben-manes:unresolvable:1.0',
