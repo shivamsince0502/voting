@@ -4,5 +4,5 @@
     "config:base"
   ],
   "automerge": true,
-  "commitMessage": "chore(deps): update dependencies"
+  "commitMessagePrefix": "chore(deps): update dependencies"
 }
