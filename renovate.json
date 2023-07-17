@@ -3,11 +3,6 @@
   "extends": [
     "config:base"
   ],
-  "rangeStrategy": "pin",
-  "packageRules":[
-    {
-      "updateTypes":["minor", "patch", "pin", "digest"],
-      "automerge": true
-    }
-  ]
-  }
+  "automerge": true,
+  "commitMessage": "chore(deps): update dependencies"
+}
