@@ -88,7 +88,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.30'
     testCompileOnly 'org.projectlombok:lombok:1.18.30'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.1.4'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.1.5'
 
     bom 'org.springframework.boot:spring-boot-dependencies:3.1.5',
             'com.google.code.gson:gson',
