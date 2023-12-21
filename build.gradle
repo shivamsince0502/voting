@@ -77,7 +77,7 @@ dependencies {
     implementation 'ch.qos.logback:logback-classic:1.4.14'
     implementation 'org.slf4j:slf4j-api:2.0.9'
     implementation 'org.springframework.boot:spring-boot-starter-web:3.2.0'
-    implementation 'org.springframework.boot:spring-boot-starter-security:3.2.0'
+    implementation 'org.springframework.boot:spring-boot-starter-security:3.2.1'
     implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.2.1'
     implementation 'mysql:mysql-connector-java:8.0.33'
