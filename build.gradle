@@ -113,7 +113,7 @@ dependencies {
     // share constraints among several projects.
     constraints {
         platform 'com.linecorp.armeria:armeria:1.26.4',
-                'io.zipkin.brave:brave:5.18.1'
+                'io.zipkin.brave:brave:6.0.0'
     }
 }
 
