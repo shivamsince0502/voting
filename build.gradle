@@ -112,7 +112,7 @@ dependencies {
     // Common usage would be to separate this into a project that uses the `java-platform` plugin to
     // share constraints among several projects.
     constraints {
-        platform 'com.linecorp.armeria:armeria:1.27.1',
+        platform 'com.linecorp.armeria:armeria:1.27.2',
                 'io.zipkin.brave:brave:6.0.1'
     }
 }
