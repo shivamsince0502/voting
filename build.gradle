@@ -90,7 +90,7 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:3.2.3'
 
-    bom 'org.springframework.boot:spring-boot-dependencies:3.2.3',
+    bom 'org.springframework.boot:spring-boot-dependencies:3.2.4',
             'com.google.code.gson:gson',
             'dom4j:dom4j'
     upToDate 'backport-util-concurrent:backport-util-concurrent:3.1',
