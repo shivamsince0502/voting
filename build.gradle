@@ -75,7 +75,7 @@ tasks.named("dependencyUpdates").configure {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter:3.2.4'
     implementation 'ch.qos.logback:logback-classic:1.5.4'
-    implementation 'org.slf4j:slf4j-api:2.0.12'
+    implementation 'org.slf4j:slf4j-api:2.0.13'
     implementation 'org.springframework.boot:spring-boot-starter-web:3.2.4'
     implementation 'org.springframework.boot:spring-boot-starter-security:3.2.4'
     implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
