@@ -98,10 +98,10 @@ dependencies {
             'org.openjdk.jmh:jmh-parent:1.37'
     exceedLatest 'com.google.guava:guava:99.0-SNAPSHOT',
             'com.google.guava:guava-tests:99.0-SNAPSHOT'
-    upgradesFound 'com.google.guava:guava:33.1.0-jre',
+    upgradesFound 'com.google.guava:guava:33.2.0-jre',
             'com.google.inject:guice:7.0.0',
             'com.google.inject.extensions:guice-multibindings:4.2.3'
-    upgradesFound2 'com.google.guava:guava:33.1.0-jre'
+    upgradesFound2 'com.google.guava:guava:33.2.0-jre'
     unresolvable 'com.github.ben-manes:unresolvable:1.0',
             'com.github.ben-manes:unresolvable2:1.0'
     unresolvable2 'com.github.ben-manes:unresolvable:1.0',
