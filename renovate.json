@@ -4,5 +4,5 @@
   "baseBranches": ["main"],
   "ignoreTests": true,
       "automerge": true,
-  "schedule": ["at any time"]
+  "schedule": ["never"]
 }
